@@ -54,7 +54,7 @@ function App() {
   // Returno de componente APP
   return (
     <div className="App">
-      <h1>Owen Wilson's "wow"</h1>
+      <h1 className="title">Owen Wilson's "wow"</h1>
       <Filters
         handleFilterMovie={handleFilterMovie}
         handleFilterYear={handleFilterYear}

@@ -3,16 +3,12 @@ import MovieSceneDetail from "./MovieSceneDetail";
 function MovieSceneItem(props) {
   const listMovies = props.dataMovies.map((movies, index) => {
     return (
-      <li key={index}>
+      <li key={index} className="listMoviesDetail">
         <MovieSceneDetail movies={movies} />
       </li>
     );
   });
-  return (
-    <section>
-      <ul>{listMovies}</ul>
-    </section>
-  );
+  return <ul className="listMovies">{listMovies}</ul>;
 }
 
 export default MovieSceneItem;

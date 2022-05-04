@@ -1,3 +1,41 @@
+
 .pictureMovies{
-  height: 150px;
+  width: 180px;
+}
+
+.listMovies{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.listMoviesDetail{
+  border-radius: 10px; 
+  background-color: rgb(76, 154, 76)
+  ;
+  width: 200px;
+   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.fullName {
+  color: white;
+   font-size: 1rem;
+}
+
+.title {
+  color: green;
+}
+.rectangleInput{
+border-radius: 10px;
+ border: solid 2px green;
+ margin: 15px;
+}
+
+.titleNameMovie{
+  font-size: 1rem;
 }

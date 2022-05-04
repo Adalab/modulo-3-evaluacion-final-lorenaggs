@@ -15,8 +15,15 @@ function FilterYear(props) {
 
   return (
     <>
-      <label htmlFor="">Year</label>
-      <select name="" id="" onChange={handleSelectYear}>
+      <label htmlFor="" className="title">
+        Year
+      </label>
+      <select
+        name=""
+        id=""
+        className="rectangleInput"
+        onChange={handleSelectYear}
+      >
         <option value="">All</option>
         {renderYear()}
       </select>

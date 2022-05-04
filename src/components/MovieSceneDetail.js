@@ -2,13 +2,13 @@
 
 function MovieSceneDetail(props) {
   return (
-    <>
+    <section className="listMoviesDetail">
       <img className="pictureMovies" src={props.movies.poster} alt="" />
-      <h2>
+      <h2 className="titleNameMovie">
         {props.movies.nameMovie} - {props.movies.year}
       </h2>
-      <p>{props.movies.fullLine}</p>
-    </>
+      <p className="fullName">{props.movies.fullLine}</p>
+    </section>
   );
 }
 

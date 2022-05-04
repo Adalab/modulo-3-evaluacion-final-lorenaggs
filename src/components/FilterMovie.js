@@ -4,8 +4,10 @@ function FilterMovie(props) {
   };
   return (
     <>
-      <label htmlFor="">Movie</label>
-      <input type="text" onChange={handleInput} />
+      <label htmlFor="" className="title">
+        Movie
+      </label>
+      <input className="rectangleInput" type="text" onChange={handleInput} />
     </>
   );
 }
