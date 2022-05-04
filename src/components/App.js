@@ -1,14 +1,24 @@
-import logo from '../images/logo.svg';
-import '../styles/App.scss';
+import "../styles/App.scss";
+import { useState, useEffect } from "react";
+import getApiData from "../services/GetApi";
+import MovieSceneItem from "./MovieSceneItem";
+import Filters from "./Filters";
 
 function App() {
+  const [dataMovies, setDataMovies] = useState([]);
+
+  useEffect(() => {
+    getApiData().then((dataFromApi) => {
+      setDataMovies(dataFromApi);
+    });
+  }, []);
+
+  console.log(dataMovies);
   return (
     <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
-
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis alias fuga odio odit atque expedita assumenda numquam quidem, voluptatibus facere ullam eos quos iusto beatae sit perspiciatis dolore laudantium minus.
-        </p>
+      <h1>Owen Wilson's "wow"</h1>
+      <Filters dataMovies={dataMovies} />
+      <MovieSceneItem dataMovies={dataMovies} />
     </div>
   );
 }
