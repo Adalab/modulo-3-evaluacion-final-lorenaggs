@@ -1,7 +1,4 @@
-// componente para el detalle de cada escena del listado
-// import { Link } from "react-router-dom";
-
-function MovieSceneDetail(props) {
+function MovieDetails(props) {
   return (
     <section className="listMoviesDetail">
       <img className="pictureMovies" src={props.movies.poster} alt="" />
@@ -9,8 +6,11 @@ function MovieSceneDetail(props) {
         {props.movies.nameMovie} - {props.movies.year}
       </h2>
       <p className="fullName">{props.movies.fullLine}</p>
+      <a className="linkAudio" href={props.movies.linkAudio}>
+        Enlace audio
+      </a>
     </section>
   );
 }
 
-export default MovieSceneDetail;
+export default MovieDetails;
