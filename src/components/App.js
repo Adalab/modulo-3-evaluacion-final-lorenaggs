@@ -8,7 +8,7 @@ function App() {
   // Variables de Estado
   const [dataMovies, setDataMovies] = useState([]);
   const [inputMovie, setInputMovie] = useState("");
-  const [filterYear, setFilterYear] = useState([]);
+  const [filterYear, setFilterYear] = useState();
 
   // Trae datos de la API
   useEffect(() => {
@@ -19,13 +19,18 @@ function App() {
 
   // función que envia el listado de peliculas
   const handleFilterMovie = (value) => {
+    console.log(value);
     setInputMovie(value);
   };
 
-  // const filterMovies = dataMovies.filter((allMovies) => {
-  // allMovies.nameMovie.toLowerCase().includes(inputMovie.toLowerCase());
-  // });
+  // filtro de peliculas por nombre de pelicula
+  const moviesFilter = dataMovies.filter((movies) => {
+    return inputMovie === ""
+      ? true
+      : movies.nameMovie.toLowerCase().includes(inputMovie.toLowerCase());
+  });
 
+  // guardo el valor del input para filtrar por año
   const handleFilterYear = (value) => {
     setFilterYear(value);
   };
@@ -46,7 +51,7 @@ function App() {
         handleFilterYear={handleFilterYear}
         year={getYears()}
       />
-      <MovieSceneItem dataMovies={dataMovies} />
+      <MovieSceneItem dataMovies={moviesFilter} />
     </div>
   );
 }

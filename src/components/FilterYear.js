@@ -5,9 +5,8 @@ function FilterYear(props) {
   const renderYear = () => {
     const yearOrder = props.year.sort();
     return yearOrder.map((year, index) => {
-      // const yearSort = year.sort();
       return (
-        <option value="" key={index}>
+        <option value={year} key={index}>
           {year}
         </option>
       );
