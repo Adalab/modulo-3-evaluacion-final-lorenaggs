@@ -1,14 +1,13 @@
-import React from "react";
+import FilterYear from "./FilterYear";
+import FilterMovie from "./FilterMovie";
 
-export default function Filters() {
+function Filters(props) {
   return (
     <form action="">
-      <label htmlFor="">Movie</label>
-      <input type="text" />
-      <label htmlFor="">Year</label>
-      <select name="" id="">
-        <option value="">All</option>
-      </select>
+      <FilterMovie handleFilterMovie={props.handleFilterMovie} />
+      <FilterYear handleFilterYear={props.handleFilterYear} year={props.year} />
     </form>
   );
 }
+
+export default Filters;
