@@ -3,7 +3,9 @@ function FilterYear(props) {
     props.handleFilterYear(ev.target.value);
   };
   const renderYear = () => {
-    return props.year.map((year, index) => {
+    const yearOrder = props.year.sort();
+    return yearOrder.map((year, index) => {
+      // const yearSort = year.sort();
       return (
         <option value="" key={index}>
           {year}
