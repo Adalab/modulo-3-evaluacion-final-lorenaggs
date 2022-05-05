@@ -1,5 +1,6 @@
 function FilterYear(props) {
   const handleSelectYear = (ev) => {
+    ev.preventDefault();
     props.handleFilterYear(ev.target.value);
   };
   const renderYear = () => {
@@ -15,7 +16,7 @@ function FilterYear(props) {
 
   return (
     <>
-      <label htmlFor="" className="title">
+      <label htmlFor="" className="titleform">
         Year
       </label>
       <select
@@ -23,6 +24,7 @@ function FilterYear(props) {
         id=""
         className="rectangleInput"
         onChange={handleSelectYear}
+        value={props.filterYear}
       >
         <option value="">All</option>
         {renderYear()}

@@ -13,7 +13,7 @@ const getApiData = () => {
           year: movie.year,
           director: movie.director,
           linkAudio: movie.audio,
-          id: `${movie.year} ${movie.movie}`,
+          id: `${movie.year}-${movie.movie.replace(" ", "-")}`,
         };
       });
       return dataClean;

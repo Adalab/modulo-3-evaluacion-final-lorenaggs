@@ -1,0 +1,12 @@
+@media all and(min-width: $mobile-width) {
+  .titleform {
+    color: $background-green;
+    margin: 10px;
+  }
+
+  .rectangleInput {
+    border-radius: 10px;
+    border: solid 2px $background-green;
+    width: 90px;
+  }
+}

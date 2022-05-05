@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { matchPath, useLocation } from "react-router";
 import getApiData from "../services/GetApi";
-import MovieSceneItem from "./MovieSceneItem";
+import ListMovie from "./ListMovie";
 import Filters from "./Filters";
-import MovieDetails from "./MovieDetails";
+import MovieScenelItem from "./MovieSceneItem";
+import Header from "./Header";
+import LocalStorage from "../services/LocalStorage";
 
 function App() {
   // Variables de Estado
@@ -20,6 +22,10 @@ function App() {
     });
   }, []);
 
+  // Guardar en LS la infromación de pelicula clickeada
+  useEffect(() => {
+    // localStorage.set("MovieSceneItem", );
+  });
   // función que envia el listado de peliculas
   const handleFilterMovie = (value) => {
     setInputMovie(value);
@@ -63,24 +69,26 @@ function App() {
   // Returno de componente APP
   return (
     <div className="App">
-      <h1 className="title">Owen Wilson's "wow"</h1>
       <Routes>
         <Route
           path="/"
           element={
             <>
+              <Header />
               <Filters
                 handleFilterMovie={handleFilterMovie}
+                inputMovie={inputMovie}
                 handleFilterYear={handleFilterYear}
+                filterYear={filterYear}
                 year={getYears()}
               />
-              <MovieSceneItem dataMovies={moviesFilterName} />
+              <ListMovie dataMovies={moviesFilterName} />
             </>
           }
         />
         <Route
           path="/movie/:movieId"
-          element={<MovieDetails movies={movieFound} />}
+          element={<MovieScenelItem movies={movieFound} />}
         />
       </Routes>
     </div>
