@@ -7,7 +7,7 @@ import ListMovie from "./ListMovie";
 import Filters from "./Filters";
 import MovieScenelItem from "./MovieSceneItem";
 import Header from "./Header";
-import LocalStorage from "../services/LocalStorage";
+
 
 function App() {
   // Variables de Estado
@@ -22,10 +22,6 @@ function App() {
     });
   }, []);
 
-  // Guardar en LS la infromación de pelicula clickeada
-  useEffect(() => {
-    // localStorage.set("MovieSceneItem", );
-  });
   // función que envia el listado de peliculas
   const handleFilterMovie = (value) => {
     setInputMovie(value);
@@ -33,6 +29,7 @@ function App() {
 
   // filtro de peliculas por nombre de pelicula
   const moviesFilterName = dataMovies
+
     .filter((movies) => {
       return inputMovie === ""
         ? true
@@ -62,9 +59,19 @@ function App() {
 
   const { pathname } = useLocation();
   const dataPath = matchPath("/movie/:movieId", pathname);
-
   const movieId = dataPath !== null ? dataPath.params.movieId : null;
   const movieFound = dataMovies.find((movies) => movies.id === movieId);
+
+  // Guardar en LS la infromación de pelicula clickeada
+  // useEffect(() => {
+  //   console.log(dataMovies);
+  //   // const { pathname } = useLocation();
+  //   const dataPath = matchPath("/movie/:movieId", pathname);
+  //   const movieId = dataPath !== null ? dataPath.params.movieId : null;
+  //   const movieFound = dataMovies.find((movies) => movies.id === movieId);
+  //   console.log(movieFound);
+  //   LocalStorage.set("MovieSceneItem", movieFound);
+  // }, [dataMovies]);
 
   // Returno de componente APP
   return (
@@ -82,6 +89,9 @@ function App() {
                 filterYear={filterYear}
                 year={getYears()}
               />
+              {moviesFilterName.length === 0 && (
+                <h2>Ingrese un nombre de película válida</h2>
+              )}
               <ListMovie dataMovies={moviesFilterName} />
             </>
           }

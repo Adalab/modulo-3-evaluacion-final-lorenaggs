@@ -7,7 +7,7 @@ function FilterYear(props) {
     const yearOrder = props.year.sort();
     return yearOrder.map((year, index) => {
       return (
-        <option value={year} key={index}>
+        <option className="listYear" value={year} key={index}>
           {year}
         </option>
       );
