@@ -8,6 +8,7 @@ import Filters from "./Filters";
 import MovieScenelItem from "./MovieSceneItem";
 import Header from "./Header";
 
+
 function App() {
   // Variables de Estado
   const [dataMovies, setDataMovies] = useState([]);
@@ -77,9 +78,11 @@ function App() {
                 filterYear={filterYear}
                 year={getYears()}
               />
+
               {moviesFilterName.length === 0 && (
                 <h2>Ingrese un nombre de película válida</h2>
               )}
+
               <ListMovie dataMovies={moviesFilterName} />
             </>
           }

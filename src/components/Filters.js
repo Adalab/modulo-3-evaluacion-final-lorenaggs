@@ -1,5 +1,6 @@
 import FilterYear from "./FilterYear";
 import FilterMovie from "./FilterMovie";
+import Reset from "./Reset";
 
 function Filters(props) {
   return (
@@ -12,6 +13,10 @@ function Filters(props) {
         handleFilterYear={props.handleFilterYear}
         year={props.year}
         filterYear={props.filterYear}
+      />
+      <Reset
+        handleFilterMovie={props.handleFilterMovie}
+        handleFilterYear={props.handleFilterYear}
       />
     </form>
   );
