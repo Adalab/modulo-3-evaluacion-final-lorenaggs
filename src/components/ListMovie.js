@@ -6,13 +6,13 @@ function ListMovie(props) {
   const listMovies = props.dataMovies.map((movies) => {
     return (
       <Link to={`/movie/${movies.id}`} className="listMovies__Detail">
-        <li key={movies.id} className="listMovies__Detail">
+        <li id={movies.id} className="listMovies__Detail">
           <MovieSceneDetail movies={movies} />
         </li>
       </Link>
     );
   });
-
+  // return <></>;
   return <ul className="listMovies">{listMovies}</ul>;
 }
 
