@@ -2,6 +2,8 @@ function reset(props) {
   const handleReset = (ev) => {
     props.handleFilterMovie("");
     props.handleFilterYear("");
+    props.handleFilterLong("");
+
     localStorage.removeItem("MovieSceneItem");
   };
 

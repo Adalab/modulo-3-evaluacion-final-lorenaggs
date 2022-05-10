@@ -8,12 +8,12 @@ import Filters from "./Filters";
 import MovieScenelItem from "./MovieSceneItem";
 import Header from "./Header";
 
-
 function App() {
   // Variables de Estado
   const [dataMovies, setDataMovies] = useState([]);
   const [inputMovie, setInputMovie] = useState("");
   const [filterYear, setFilterYear] = useState("");
+  const [filterLong, setFilterLong] = useState("");
 
   // Trae datos de la API
   useEffect(() => {
@@ -31,6 +31,9 @@ function App() {
   const handleFilterYear = (value) => {
     setFilterYear(value);
   };
+  const handleFilterLong = (value) => {
+    setFilterLong(value);
+  };
 
   // filtro de peliculas por nombre de pelicula
   const moviesFilterName = dataMovies
@@ -46,6 +49,11 @@ function App() {
       } else {
         return filterYear.includes(movies.year);
       }
+    })
+    .filter((movies) => {
+      return filterLong === ""
+        ? true
+        : movies.fullLine.length === parseInt(filterLong);
     });
 
   // filter de peliculas por año
@@ -77,6 +85,8 @@ function App() {
                 handleFilterYear={handleFilterYear}
                 filterYear={filterYear}
                 year={getYears()}
+                handleFilterLong={handleFilterLong}
+                filterLong={filterLong}
               />
 
               {moviesFilterName.length === 0 && (
